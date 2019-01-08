@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Job Application Tracker</title>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" crossorigin="anonymous">
+        <link href="main.css" rel="stylesheet">
+        <link href="description.css" rel="stylesheet">
+        <link href="grid.css" rel="stylesheet">
+        <link href="misc.css" rel="stylesheet">
+        
+    </head>
+    <body class="body-main" onload='showDate()'>
+        
+        <header>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Fixed navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline mt-2 mt-md-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+</header>
+        
+        <h1 id ='bigOne'></h1>
+        
+        <div id="container" class="container">
+            
+            <div class="row r-3">
+            <!-- description columns -->
+    <div class="col-2 themed-grid-description themed-grid-history">Company Name</div>
+    <div class="col-2 themed-grid-description themed-grid-history">Job</div>
+    <div class="col-2 themed-grid-description themed-grid-history">Date</div>
+    <div class="col-4 themed-grid-description themed-grid-history">Notes</div>
+    <div class="col-2 themed-grid-description themed-grid-history"></div>
+            </div>
+            
+        <div class="row mb-2">
+            <!-- input columns -->
+            <div class="col-2 themed-grid-col">
+                <input id="job-company-name" class="styled-input" type="text" name="Company"><br>
+            </div>
+            <div class="col-2 themed-grid-col">
+                <input id="job-name" class="styled-input" type="text" name="JobType"><br>
+            </div>
+            <div class="col-2 themed-grid-col">
+                <input id="job-date-apply" class="styled-input" type="date" name="date">
+            </div>
+            <div class="col-4 themed-grid-col">
+                <textarea id="job-notes" class="styled-input" rows="4" cols="50"></textarea>
+            </div>
+            <div class="col-2 themed-grid-col">
+                <select id="result-selector">
+  <option value="Applied">Applied</option>
+  <option value="Rejected">Rejected</option>
+  <option value="Accepted">Accepted</option>
+</select>
+                <button class="styled-input" type="button" onclick="addToList()">Add</button>
+            </div>
+  </div>
+            
+            <div class="row mb-2">
+            <!-- list result column descriptions -->
+    <div  class="col-2 themed-grid-history">Company Name</div>
+    <div  class="col-2 themed-grid-history">Job</div>
+    <div  class="col-2 themed-grid-history">Date</div>
+    <div  class="col-4 themed-grid-history"></div>
+    <div id="job-outcome" class="col-2 themed-grid-history">Outcome</div>
+            </div>
+            
+            <div class="row mb-3">
+            <div id="job-list" class="vertical-menu">
+  
+</div>
+            </div>
+            
+            <div class="accordion" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Collapsible Group Item #1
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Collapsible Group Item #2
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Collapsible Group Item #3
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+            
+            </div>
+        
+        <script>
+            var oddElement = true;
+            
+        function addToList(){
+            
+            var oddNum
+            
+            var list = document.getElementById('job-list');
+            
+            //https://getbootstrap.com/docs/4.1/components/collapse/
+            // TODO: look at this link and try to make a better collapsable menu
+            
+            var jobCompanyName = document.createElement('div');
+            jobCompanyName.innerHTML = document.getElementById('job-company-name').value;
+            jobCompanyName.setAttribute('class', 'col-2 ');
+            
+            var jobName = document.createElement('div');
+            jobName.innerHTML = document.getElementById('job-name').value;
+            jobName.setAttribute('class', 'col-2 ');
+            
+            var jobDateApply = document.createElement('div');
+            jobDateApply.innerHTML = document.getElementById('job-date-apply').value;
+            jobDateApply.setAttribute('class', 'col-2 ');
+            
+            //TODO: thinking about showing this when clicked!
+            var blankSpace = document.createElement('div');
+            var moreButton = document.createElement('text');
+            moreButton.setAttribute('src', 'ddarrow.png');
+            moreButton.setAttribute('class', 'list-ddarrow');
+            blankSpace.setAttribute('class', 'col-4  ');
+            blankSpace.appendChild(moreButton);
+            
+            var jobOutcome = document.createElement('div');
+            jobOutcome.setAttribute('class', 'col-2  ');
+            var selectedResult = document.getElementById('result-selector').value;
+            jobOutcome.innerHTML = selectedResult;
+            if(selectedResult === 'Applied'){
+                jobOutcome.style.backgroundColor = 'rgb(217, 217, 217)';
+            }
+            if(selectedResult === 'Rejected')
+            {
+                jobOutcome.style.backgroundColor = 'rgb(255, 51, 0)';
+            }
+            if(selectedResult === 'Accepted')
+            {
+                jobOutcome.style.backgroundColor = 'rgb(51, 204, 51)';
+            }
+            
+            
+            var jobRow = document.createElement('div');
+            jobRow.setAttribute('class', 'row r-3 vertical-menu-item');
+            if(oddElement){
+                jobRow.style.backgroundColor = "#cad6e7";
+                oddElement = false;
+            }
+            else{
+                oddElement = true;
+            }
+            jobRow.onclick = function() {
+                var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+            };
+            jobRow.appendChild(jobCompanyName);
+            jobRow.appendChild(jobName);
+            jobRow.appendChild(jobDateApply);
+            jobRow.appendChild(blankSpace);
+            jobRow.appendChild(jobOutcome);
+            
+            
+            var jobNotes = document.createElement('p');
+            jobNotes.innerHTML = document.getElementById('job-notes').value;
+            jobNotes.setAttribute('class', 'vertical-menu-item-panel');
+            
+            list.appendChild(jobRow);
+            list.appendChild(jobNotes);
+            
+        }
+        </script>
+        
+        <script>
+        function showDate(){
+            n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+this.alert( "the current date is: " +  m + "/" + d + "/" + y );
+        }</script>
+        
+<script src ="https://code.jquery.com/jquery-3.3.1.slim.min.js"  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"  crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"  crossorigin="anonymous"></script>
+        
+<script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBVmWrlEN9sZnwhFWRxj5lItTq5SvGDoCM",
+    authDomain: "jobapplicationmanager-139d9.firebaseapp.com",
+    databaseURL: "https://jobapplicationmanager-139d9.firebaseio.com",
+    projectId: "jobapplicationmanager-139d9",
+    storageBucket: "jobapplicationmanager-139d9.appspot.com",
+    messagingSenderId: "730326693133"
+  };
+  firebase.initializeApp(config);
+  // TODO: play with this on firebase, this is using real time database stuff.
+  var bigOne = document.getElementById('bigOne');
+  var dbRef = firebase.database().ref().child('text');
+  dbRef.on('value', snap => bigOne.innerText = snap.val());
+  
+</script>
+    </body>
+</html>
